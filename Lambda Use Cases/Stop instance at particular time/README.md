@@ -29,7 +29,7 @@
 
 > This is added as minimum permissions required for the function. Can be also added through the visual builder in the policy console.
 
-> Values under {} are to be replaced as per your environent
+> Values under {} are to be replaced as per your environment
 
 ### 3. Add a trigger
 - Under function, click on add trigger

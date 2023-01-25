@@ -2,8 +2,8 @@ import boto3
 ec2 = boto3.client("ec2")
 sns = boto3.client('sns')
 
-INSTANCE_ID = "i-07d311627f148bb11"
-TOPIC_ARN = "arn:aws:sns:us-east-1:529310672444:instance-stop-notification"
+INSTANCE_ID = "replace with your instance id"
+TOPIC_ARN = "replace with your topic arn"
 
 
 def lambda_handler(event, context):
@@ -20,7 +20,7 @@ def lambda_handler(event, context):
         print("send an email")
         
         response = sns.publish(
-            TopicArn='arn:aws:sns:us-east-1:529310672444:instance-stop-notification',
+            TopicArn=TOPIC_ARN,
             Message=f'important instance stopped with the instance id {INSTANCE_ID}',
             Subject='PROD DOWN!!'
         )

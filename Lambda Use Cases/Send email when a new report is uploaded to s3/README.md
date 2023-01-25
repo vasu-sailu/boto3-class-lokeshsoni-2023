@@ -1,4 +1,4 @@
-# Send email when a prod instance is down
+# Send email when a new report is uploaded to s3
 
 ## Architecture Diagram
 
@@ -27,15 +27,15 @@
 - Under IAM role, add an inline policy with the following permissions
   
 ```json
-# EC2 Permisions
+# S3 Permisions
 {
   "Version": "2012-10-17",
   "Statement": [
     {
       "Sid": "VisualEditor0",
       "Effect": "Allow",
-      "Action": "ec2:DescribeInstances",
-      "Resource": "*"
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::{replace with your bucket name}/{replace with your folder name}"
     }
   ]
 }
@@ -55,8 +55,8 @@
 
 ### 5. Add a trigger
 - Under function, click on add trigger
-- select Eventbridge and create a new rule following the below screenshot
+- select S3 and create a new trigger following the below screenshot
 
 <img title="Trigger Configuration" alt="Trigger Configuration" src="./assets/Trigger%20Configuration.png">
 
-> We have added a trigger to check the instance status every 1 minute. You can set the schedule as per your use case.
+> We have added a trigger for any ".txt" file uploaded to the "reports/" folder in the s3 bucket. You can set the prefix and suffix as per your use case.

@@ -1,7 +1,7 @@
 import boto3
 ec2 = boto3.client("ec2")
 
-INSTANCE_ID = "put your instance id here"
+INSTANCE_ID = "replace with your instance id"
 
 
 def lambda_handler(event, context):
