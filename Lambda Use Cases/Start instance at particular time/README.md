@@ -1,4 +1,4 @@
-# Stop the instance at a particular time
+# Start the instance at a particular time
 
 ## Architecture Diagram
 
@@ -20,7 +20,7 @@
         {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
-            "Action": "ec2:StopInstances",
+            "Action": "ec2:StartInstances",
             "Resource": "arn:aws:ec2:{replace with your region}:{replace with your account id}:instance/{replace with your instance id}"
         }
     ]
@@ -38,5 +38,3 @@
 <img title="Trigger Configuration" alt="Trigger Configuration" src="./assets/Trigger%20Configuration.png">
 
 > We have added a trigger to stop the instance daily at 6PM UTC. You can convert the time to your local timestamp and change the schedule value accordingly
-
-
